@@ -1,13 +1,19 @@
 <h1>Sign up!</h1>
 
-<!--
-<div class="errors">
+<div >
   <ul>
-    <li>One error</li>
-    <li>Another error</li>
+    <% if @user.errors.any?%>
+        <div class="errors" id="error_explanation">
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
   </ul>
 </div>
--->
+<ul>
 
 <%= form_for(@user) do |f| %>
   <ul>
